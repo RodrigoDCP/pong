@@ -1,0 +1,7 @@
+# Pong
+
+Este código es una implementación completa del juego Pong en Python utilizando la biblioteca Pygame. Permite a dos jugadores controlar paletas a ambos lados de la pantalla y rebotar una pelota de un lado a otro, con el objetivo de pasar la pelota más allá de la paleta del otro jugador. El juego cuenta con efectos de sonido y lleva un registro de la puntuación. El código también incluye una función para mostrar un menú con un video de fondo antes de comenzar el juego.
+
+El código define varias constantes para el ancho, alto y velocidad de la pelota y las paletas, así como colores utilizados en el juego. Luego, inicializa Pygame y configura una ventana. Se definen dos clases para los objetos de la pelota y la paleta, cada una con un método update() para manejar el movimiento y las colisiones, y un método reset() para restablecer su posición y velocidad. Se define una clase Player para llevar un registro de la puntuación y la paleta de cada jugador.
+
+El bucle principal del juego espera eventos de Pygame, incluidas las teclas presionadas para mover las paletas, y actualiza y dibuja los objetos del juego en la pantalla. El bucle del juego continúa hasta que el usuario cierra la ventana o presiona la tecla Escape. Finalmente, el código incluye una función para mostrar un menú con un video de fondo antes de comenzar el juego. Esta función carga un archivo de video utilizando la biblioteca moviepy y lo reproduce en una ventana de Pygame antes de llamar al bucle principal del juego.
