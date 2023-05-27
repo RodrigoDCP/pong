@@ -4,16 +4,16 @@ from pygame.locals import *
 import random
 import threading
 import time
-
+#import cv2
 
 # Definir algunas constantes
-WIDTH = 852
+WIDTH = 1300
 HEIGHT = 480
 BALL_SIZE = 20
 PADDLE_WIDTH = 15
 PADDLE_HEIGHT = 80
-PADDLE_SPEED = 5
-BALL_SPEED = 2
+PADDLE_SPEED = 6
+BALL_SPEED = 3
 
 # Definir colores
 BLACK = (0, 0, 0)
@@ -126,18 +126,51 @@ def mostrar_puntaje():
 
 
 def mostrar_menu():
+	ancho = 1300
+	alto = 480
 
 	# Carga el archivo de video
-	clip = VideoFileClip('fondo6.mp4')
-
-	clip.preview()
+	clip = VideoFileClip('intro.mp4')
 	# Reproduce el video en una ventana	
 	# Cierra la ventana de video cuando el video ha terminado de reproducirse
+	clip = clip.resize((ancho, alto))
+	pygame.display.set_mode((clip.w, clip.h))
+	
+	
+	clip.preview()
+	
 	clip.close()
+	
+	pygame.display.set_mode((ancho, alto))
 		
 	jugar()
-	
 
+
+
+'''
+def omitir_intro(event, x, y, flags, param):
+    if event == cv2.EVENT_LBUTTONDOWN:
+        cv2.destroyAllWindows()
+        jugar()
+
+def mostrar_menu():
+    # Carga el archivo de video
+    video = cv2.VideoCapture('fondo7.mp4')
+
+    # Reproduce el video en una ventana
+    while video.isOpened():
+        ret, frame = video.read()
+        if not ret:
+            break
+
+        cv2.imshow('Video', frame)
+        cv2.setMouseCallback('Video', omitir_intro)
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
+
+    video.release()
+    cv2.destroyAllWindows()	
+'''
 
 
 '''
